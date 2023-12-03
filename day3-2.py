@@ -1,9 +1,9 @@
 import fileinput
 
 grid = []
-# append '.' to the end of each row in the input to make sure we don't go out of bounds
 for line in fileinput.input():
-    grid.append(line.strip())
+    # append '.' to the end of each row in the input to make sure we don't go out of bounds
+    grid.append(line.strip() + ".")
 
 numbers_adjacent_to_gears = [[0 for _ in range(len(grid[0]))] for _ in range(len(grid))]
 gear_factors = [[1 for _ in range(len(grid[0]))] for _ in range(len(grid))]

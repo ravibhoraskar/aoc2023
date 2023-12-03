@@ -1,9 +1,9 @@
 import fileinput
 
 grid = []
-# append '.' to the end of each row in the input to make sure we don't go out of bounds
 for line in fileinput.input():
-    grid.append(line.strip())
+    # append '.' to the end of each row in the input to make sure we don't go out of bounds
+    grid.append(line.strip() + ".")
 
 def isvalid(x, y, length):
     for i in range(x-1, x+2): # range is inclusive-exclusive
