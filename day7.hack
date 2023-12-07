@@ -7,7 +7,7 @@ use namespace HH\Lib\C;
 use namespace HH\Lib\Math;
 
 const vec<string> CARDS =
-  vec['A', 'K', 'Q', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'J'];
+  vec['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'];
 
 <<__EntryPoint>>
 async function main(): Awaitable<void> {
