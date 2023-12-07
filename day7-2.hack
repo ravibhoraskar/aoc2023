@@ -45,24 +45,53 @@ async function main(): Awaitable<void> {
 
 function getType(string $card): int {
   $cards = Str\split($card, '') |> Dict\count_values($$);
+  $jokers = $cards['J'] ?? 0;
+  $cards = Dict\filter_keys($cards, $k ==> $k !== 'J');
   $counts = Vec\sort($cards) |> Vec\reverse($$);
-  if ($counts[0] === 5) {
+  if (C\is_empty($counts) || $counts[0] === 5) {
     return 7;
   } else if ($counts[0] === 4) {
+    if ($jokers === 1) {
+      return 7;
+    }
     return 6;
   } else if ($counts[0] === 3) {
-    if ($counts[1] === 2) {
+    if ($jokers === 2) {
+      return 7;
+    } else if ($jokers === 1) {
+      return 6;
+    } else if ($counts[1] === 2) {
       return 5;
     } else {
       return 4;
     }
   } else if ($counts[0] === 2) {
-    if ($counts[1] === 2) {
+    if ($jokers === 3) {
+      return 7;
+    } else if ($jokers === 2) {
+      return 6;
+    } else if ($jokers === 1) {
+      if ($counts[1] === 2) {
+        return 5;
+      } else {
+        return 4;
+      }
+    } else if ($counts[1] === 2) {
       return 3;
     } else {
       return 2;
     }
   } else {
-    return 1;
+    if ($jokers === 4) {
+      return 7;
+    } else if ($jokers === 3) {
+      return 6;
+    } else if ($jokers === 2) {
+      return 4;
+    } else if ($jokers === 1) {
+      return 2;
+    } else {
+      return 1;
+    }
   }
 }
