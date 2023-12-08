@@ -10,8 +10,8 @@ for line in input:
     dst = line.split("=")[1].strip()[1:-1].split(", ")
     graph[src] = dst
 
-inits = [x for x in graph.keys() if x[-1] == 'A']
-ends = [x for x in graph.keys() if x[-1] == 'Z']
+inits = [x for x in graph.keys() if x[-1] == "A"]
+ends = [x for x in graph.keys() if x[-1] == "Z"]
 
 steplist = []
 for init in inits:
@@ -22,7 +22,7 @@ for init in inits:
     while not current in ends:
         steps += 1
 
-        if firstline[curridx] == 'L':
+        if firstline[curridx] == "L":
             current = graph[current][0]
         else:
             current = graph[current][1]

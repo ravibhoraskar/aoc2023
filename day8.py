@@ -11,13 +11,13 @@ for line in input:
     graph[src] = dst
 
 steps = 0
-current = 'AAA'
+current = "AAA"
 curridx = 0
 
-while current != 'ZZZ':
+while current != "ZZZ":
     steps += 1
 
-    if firstline[curridx] == 'L':
+    if firstline[curridx] == "L":
         current = graph[current][0]
     else:
         current = graph[current][1]
