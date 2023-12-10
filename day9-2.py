@@ -1,5 +1,6 @@
 import fileinput
 
+
 def next(line):
     if all(x == 0 for x in line):
         return 0
