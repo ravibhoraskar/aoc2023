@@ -9,7 +9,7 @@ use namespace HH\Lib\Math;
 function run_hash_algo(string $str): int {
   $hash = 0;
   for ($i = 0; $i < Str\length($str); ++$i) {
-    $a = PHP\ord($str[$i]);
+    $a = ord($str[$i]);
     $hash += $a;
     $hash *= 17;
     $hash %= 256;
