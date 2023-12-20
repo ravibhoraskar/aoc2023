@@ -21,20 +21,21 @@ for p in parts:
     r.append(pdict)
 parts = r
 
+
 def applyrule(rule, part):
-    print ("  Applying rule", rule)
+    print("  Applying rule", rule)
     for r in workflows[rule]:
-        print ("    Rule", r)
-        if '<' in r:
-            nxt = r.split(':')[1]
+        print("    Rule", r)
+        if "<" in r:
+            nxt = r.split(":")[1]
             cat = r.split("<")[0]
-            bu = int(r.split(':')[0].split("<")[1])
+            bu = int(r.split(":")[0].split("<")[1])
             if part[cat] < bu:
                 return nxt
-        elif '>' in r:
-            nxt = r.split(':')[1]
+        elif ">" in r:
+            nxt = r.split(":")[1]
             cat = r.split(">")[0]
-            bu = int(r.split(':')[0].split(">")[1])
+            bu = int(r.split(":")[0].split(">")[1])
             if part[cat] > bu:
                 return nxt
         else:
@@ -42,13 +43,12 @@ def applyrule(rule, part):
     raise Exception("applyrule failed")
 
 
-
 accepted = []
 for p in parts:
-    print ("Processing part", p)
+    print("Processing part", p)
     rule = "in"
     while not rule in ["A", "R"]:
         rule = applyrule(rule, p)
     if rule == "A":
         accepted.append(p)
-print (sum([sum(x.values()) for x in accepted]))
+print(sum([sum(x.values()) for x in accepted]))

@@ -14,10 +14,10 @@ for i in range(len(graph)):
 
 prev = start
 current = (start[0], start[1] + 1)  # hardcode first neighbor
-up = ["|", "L", "J", "S"] # hardcode S == L
+up = ["|", "L", "J", "S"]  # hardcode S == L
 down = ["|", "7", "F"]
 left = ["-", "7", "J"]
-right = ["-", "F", "L", "S"] # hardcode S == L
+right = ["-", "F", "L", "S"]  # hardcode S == L
 
 loop = {start}
 
@@ -52,13 +52,15 @@ for i in range(len(graph) * 2):
     for j in range(len(graph[0]) * 2):
         if i % 2 == 0 and j % 2 == 0:
             expanded[i][j] = graph[i // 2][j // 2]
-        elif j > 0 and expanded[i][j -1] in right:
+        elif j > 0 and expanded[i][j - 1] in right:
             expanded[i][j] = "-"
-        elif i > 0 and expanded[i -1][j] in down:
+        elif i > 0 and expanded[i - 1][j] in down:
             expanded[i][j] = "|"
 
 # Flood fill
-tovisit = [(i,0) for i in range(len(expanded))] + [(0,j) for j in range(len(expanded[0]))]
+tovisit = [(i, 0) for i in range(len(expanded))] + [
+    (0, j) for j in range(len(expanded[0]))
+]
 while tovisit:
     i, j = tovisit.pop()
     if i < 0 or j < 0 or i >= len(expanded) or j >= len(expanded[0]):

@@ -36,17 +36,17 @@ for line in fileinput.input():
 
     for i in range(x, newx, -1 if x > newx else 1):
         m[i][y] = 1
-    for j in range (y, newy, -1 if y > newy else 1):
+    for j in range(y, newy, -1 if y > newy else 1):
         if j < len(m[0]):
             m[x][j] = 1
     m[newx][newy] = 1
     x, y = newx, newy
 
-#Flood fill solution
+# Flood fill solution
 m = numpy.pad(m, [(1, 1), (1, 1)])
 tovisit = [(0, 0)]
 while len(tovisit) > 0:
-    i,j = tovisit.pop()
+    i, j = tovisit.pop()
     if i < 0 or j < 0 or i >= len(m) or j >= len(m[0]):
         continue
     elif m[i][j] == 0:

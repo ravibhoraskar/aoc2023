@@ -1,9 +1,11 @@
 import fileinput
 import numpy
 
+
 def print_matrix(m):
     for row in m:
-        print(''.join(row))
+        print("".join(row))
+
 
 input = fileinput.input()
 output = 0
@@ -11,14 +13,14 @@ m = []
 
 for line in input:
     line = line.strip()
-    if not '#' in line:
+    if not "#" in line:
         m.append(list(line))
     m.append(list(line))
 
 m = numpy.transpose(m)
 newm = []
 for line in m:
-    if not '#' in line:
+    if not "#" in line:
         newm.append(line)
     newm.append(line)
 m = numpy.transpose(newm)
@@ -26,7 +28,7 @@ m = numpy.transpose(newm)
 galaxies = []
 for i, _ in enumerate(m):
     for j, e in enumerate(m[i]):
-        if (e == '#'):
+        if e == "#":
             galaxies.append((i, j))
 
 sum = 0
