@@ -39,4 +39,5 @@ def find():
 
 
 startx, starty = find()
+recurse(startx, starty, 64)
 print(sum([sum(x) for x in m2]))
