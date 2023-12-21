@@ -57,17 +57,15 @@ while len(tovisit) > 0:
         tovisit.append((i, j - 1))
 
 sum = 0
+for i in range(len(m)):
+    for j in range(len(m[0])):
+        if m[i][j] == 0:
+            print(".", end="")
+            sum += 1
+        elif m[i][j] == 1:
+            print("#", end="")
+            sum += 1
+        else:
+            print("X", end="")
+    print()
 print(sum)
-
-
-# for i in range(len(m)):
-#     for j in range(len(m[0])):
-#         if m[i][j] == 0:
-#             print ('.', end="")
-#             sum += 1
-#         elif m[i][j] == 1:
-#             print ('#', end="")
-#             sum += 1
-#         else:
-#             print ('X', end="")
-#     print()
