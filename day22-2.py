@@ -8,6 +8,7 @@ for line in fileinput.input():
     )
     bricks.append(brick)
 
+
 def estaocupada(brick, ocupada):
     for i in range(brick[0][0], brick[1][0] + 1):
         for j in range(brick[0][1], brick[1][1] + 1):
@@ -16,10 +17,11 @@ def estaocupada(brick, ocupada):
                     return True
     return False
 
+
 def fallbricks(bricks):
     bricks = sorted(bricks, key=lambda x: x[0][2])
     newbricks = []
-    ocupada = numpy.zeros([20,20,400])
+    ocupada = numpy.zeros([20, 20, 400])
     numfell = 0
     for brick in bricks:
         prevbrick = None
@@ -37,9 +39,10 @@ def fallbricks(bricks):
                 for i in range(prevbrick[0][0], prevbrick[1][0] + 1):
                     for j in range(prevbrick[0][1], prevbrick[1][1] + 1):
                         for k in range(prevbrick[0][2], prevbrick[1][2] + 1):
-                            ocupada[i,j,k] = 1
+                            ocupada[i, j, k] = 1
                 break
     return [newbricks, numfell]
+
 
 newbricks, _ = fallbricks(bricks)
 

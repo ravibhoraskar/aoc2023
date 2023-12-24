@@ -12,7 +12,8 @@ for line in fileinput.input():
 
 end = len(m) - 1
 
-sys.setrecursionlimit(end **2)
+sys.setrecursionlimit(end**2)
+
 
 def recurse(i, j):
     result = None
@@ -40,5 +41,6 @@ def recurse(i, j):
         )
         m[i][j] = "."
     return result
+
 
 print(recurse(0, 1))
